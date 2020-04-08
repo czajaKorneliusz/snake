@@ -1,0 +1,29 @@
+﻿<Window x:Class="Snake.Views.HighScoreView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake.Views"
+        xmlns:viewModels="clr-namespace:Snake.ViewModels"
+        xmlns:strings="clr-namespace:Snake.Strings"
+        mc:Ignorable="d"
+        Title="{x:Static strings:Resources.HighScores}" Height="450" Width="400">
+    <Window.DataContext>
+        <viewModels:HighScoreViewModel />
+    </Window.DataContext>
+    <Grid VerticalAlignment="Top">
+        <ListView ItemsSource="{Binding HighScoreEntries}" FontSize="22">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static strings:Resources.Name}"
+
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="{x:Static strings:Resources.Score}"
+                                    DisplayMemberBinding="{Binding Score}" />
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>

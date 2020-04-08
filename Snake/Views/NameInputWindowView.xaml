@@ -1,0 +1,28 @@
+﻿<Window x:Name="window" x:Class="Snake.Views.NameInputWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake.Views"
+        xmlns:viewModels="clr-namespace:Snake.ViewModels"
+        xmlns:strings="clr-namespace:Snake.Strings"
+        mc:Ignorable="d"
+        Title="NameInputWindow" Height="250" Width="400" WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:NameInputWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="{x:Static strings:Resources.PlayerNameQuestion}" HorizontalAlignment="Center"
+               VerticalAlignment="Center" />
+        <TextBox Name="TextBoxForName" Grid.Row="1" BorderBrush="Black" Margin="15,0" FontSize="22"
+                 Text="{Binding TextBoxString, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="2" Content="OK" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"
+                Command="{Binding OkCommand}" CommandParameter="{Binding ElementName=window}" />
+    </Grid>
+</Window>
